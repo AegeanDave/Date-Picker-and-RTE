@@ -8,7 +8,6 @@ import {
   Typography,
   Divider,
   IconButton,
-  ListItem,
   ListItemText,
   ListItemIcon,
   ListItemButton,
@@ -18,9 +17,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -108,7 +105,6 @@ export default function Layout({ children, menu }: Props) {
         <Toolbar>
           <IconButton
             color="inherit"
-            aria-label="open drawer"
             onClick={() => setOpen((pre) => !pre)}
             edge="start"
             sx={{
@@ -136,35 +132,37 @@ export default function Layout({ children, menu }: Props) {
         <Divider />
         <List>
           {menu.map((menuItem, index) => (
-            <Link to={menuItem.link}>
-              <ListItem
-                key={menuItem.label}
-                disablePadding
-                sx={{ display: "block" }}
-              >
+            <NavLink to={menuItem.link} key={index} end>
+              {({ isActive }) => (
                 <ListItemButton
-                  sx={{
-                    minHeight: 48,
-                    justifyContent: open ? "initial" : "center",
-                    px: 2.5,
-                  }}
+                  key={menuItem.label}
+                  sx={{ display: "block" }}
+                  selected={isActive}
                 >
-                  <ListItemIcon
+                  <ListItemButton
                     sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : "auto",
-                      justifyContent: "center",
+                      minHeight: 48,
+                      justifyContent: open ? "initial" : "center",
+                      px: 2.5,
                     }}
                   >
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={menuItem.label}
-                    sx={{ opacity: open ? 1 : 0 }}
-                  />
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : "auto",
+                        justifyContent: "center",
+                      }}
+                    >
+                      {menuItem.icon}
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={menuItem.label}
+                      sx={{ opacity: open ? 1 : 0 }}
+                    />
+                  </ListItemButton>
                 </ListItemButton>
-              </ListItem>
-            </Link>
+              )}
+            </NavLink>
           ))}
         </List>
       </Drawer>
