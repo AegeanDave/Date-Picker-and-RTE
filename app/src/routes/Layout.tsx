@@ -132,7 +132,11 @@ export default function Layout({ children, menu }: Props) {
         <Divider />
         <List>
           {menu.map((menuItem, index) => (
-            <NavLink to={menuItem.link} key={index} end>
+            <NavLink
+              to={menuItem.link}
+              key={index}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               {({ isActive }) => (
                 <ListItemButton
                   key={menuItem.label}
