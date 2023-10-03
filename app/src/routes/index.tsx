@@ -1,25 +1,15 @@
-import { Outlet } from "react-router-dom";
-import Layout from "./Layout";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import EditNoteIcon from "@mui/icons-material/EditNote";
+import { Container, Box, Grid } from "@mui/material";
 
-const menu = [
-  {
-    label: "DatePicker",
-    link: "/date-picker",
-    icon: <CalendarMonthIcon />,
-  },
-  {
-    label: "RT-Editor",
-    link: "/rt-editor",
-    icon: <EditNoteIcon />,
-  },
-];
-
-export default function Root() {
+export default function Index() {
   return (
-    <Layout menu={menu}>
-      <Outlet />
-    </Layout>
+    <Container maxWidth="lg">
+      <Box sx={{ height: "100vh" }}>
+        <Grid container>
+          <Grid item xs>
+            <h1>Welcome to My Component Showcase</h1>
+          </Grid>
+        </Grid>
+      </Box>
+    </Container>
   );
 }
