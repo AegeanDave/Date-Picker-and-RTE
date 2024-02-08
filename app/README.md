@@ -1,4 +1,16 @@
-# Getting Started with Create React App
+# Crafting Components
+
+React component library designed to provide a set of reusable and customizable components for building web applications. It includes components such as date pickers, rich text editors, and more, aimed at simplifying the development process and enhancing user experience.
+
+Key Features
+
+- DatePicker: A versatile date picker component that allows users to select dates easily.
+
+- RichTextEditor: An advanced text editor with formatting options such as bold, italic, underline, bullet points, and more.
+
+- Component Theming: Easily customize the appearance of components to match your application's design system.
+
+- Accessibility: Components are designed with accessibility in mind, ensuring they are usable by everyone.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
